@@ -48,14 +48,9 @@ The kubelet takes a set of PodSpecs that are provided and ensures that the conta
 ![kubelet](https://devopscube.com/wp-content/uploads/2023/01/kubelet-architecture-830x1024.png "kubelet")
 #### kube-proxy
 
-kube-proxy is a network proxy that runs on each node in your cluster, implementing part of the Kubernetes Service concept.
+Kube-proxy, short for "Kubernetes Proxy," is a network proxy that runs on each node in a Kubernetes cluster. Its primary responsibility is to maintain network rules for services and to manage network communication between different pods and services within the cluster.
 
-kube-proxy maintains network rules on nodes. These network rules allow network communication to your Pods from network sessions inside or outside of your cluster.
-
--> when we create a deployment and make that deployment as a service in which the kube-proxy comes in picture
-
-Service in Kubernetes is a way to expose a set of pods internally or to external traffic. When you create the service object, it gets a virtual IP assigned to it. It is called clusterIP. It is only accessible within the Kubernetes cluster.
-
+Example:-
 **When you expose pods using a Service (ClusterIP), Kube-proxy creates network rules to send traffic to the backend pods (endpoints)** grouped under the Service object. Meaning, all the load balancing, and service discovery are handled by the Kube proxy.
 
 [**So how does Kube-proxy work?**](https://www.youtube.com/watch?v=QUqQ7HjJ4Qw)
@@ -63,7 +58,7 @@ Service in Kubernetes is a way to expose a set of pods internally or to external
 Kube proxy talks to the API server to get the details about the Service **(ClusterIP)/(NodePort)** and respective pod IPs & ports (endpoints). It also monitors for changes in service and endpoints.
 
 **kube-proxy modes**
-
+Kube-proxy then uses any one of the following modes to create/update rules for routing traffic to pods behind a Service
 >**IPTables**: It is the default mode. In IPTables mode, the traffic is handled by IPtable rules. In this mode, kube-proxy chooses the backend pod random for load balancing. Once the connection is established, the requests go to the same pod until the connection is terminated.
 **IPVS**: For clusters with services exceeding 1000, IPVS offers performance improvement.
 
