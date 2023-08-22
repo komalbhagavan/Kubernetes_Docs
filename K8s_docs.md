@@ -13,7 +13,7 @@
 -------------------------------------------
 ![clusrter_architecture](https://devopscube.com/wp-content/uploads/2022/12/k8s-architecture.drawio-1.png)
 
-The purpose of kubernetes is to host your applications in form of containers in an automated fashion so you can deploy any number of instances and can enable communication between thwm.
+The purpose of kubernetes is to host your applications in form of containers in an automated fashion so you can deploy any number of instances and can enable communication between them.
 
 --------------------------------------------------------------------------------
 ### Nodes
