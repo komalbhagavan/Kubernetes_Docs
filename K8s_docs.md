@@ -76,33 +76,6 @@ Container runtime runs on all the nodes in the Kubernetes cluster. It is respons
 
 ![container runtime](https://devopscube.com/wp-content/uploads/2022/12/image-5.png "container runtime")
 
-#### How is communication between the control plane and worker nodes secured in Kubernetes?
-
-Communication between the control plane and worker nodes is secured using PKI certificates and communication between different components happens over TLS. This way, only trusted components can communicate with each other.
-
-#### Node to Control Plane
-
-All API usage from nodes (or the pods they run) terminates at the API server. None of the other control plane components are designed to expose remote services. The API server is configured to listen for remote connections on a secure HTTPS port (typically 443) with one or more forms of client authentication enabled. One or more forms of authorization should be enabled
-
-Nodes should be provisioned with the public root certificate for the cluster such that they can connect securely to the API server along with valid client credentials. A good approach is that the client credentials provided to the kubelet are in the form of a client certificate
-
-Pods that wish to connect to the API server can do so securely by leveraging a service account so that Kubernetes will automatically inject the public root certificate and a valid bearer token into the pod when it is instantiated.
-
-#### Control plane to node
-
-There are two primary communication paths from the control plane (the API server) to the nodes. The first is from the API server to the kubelet process which runs on each node in the cluster. The second is from the API server to any node, pod, or service through the API server's proxy functionality.
-
-**The connections from the API server to the kubelet are used for:
-**
-Fetching logs for pods.
-Attaching (usually through kubectl) to running pods.
-Providing the kubelet's port-forwarding functionality.
-
-These connections terminate at the kubelet's HTTPS endpoint. By default, the API server does not verify the kubelet's serving certificate, which makes the connection subject to man-in-the-middle attacks and unsafe to run over untrusted and/or public networks.
-
-To verify this connection, use the --kubelet-certificate-authority flag to provide the API server with a root certificate bundle to use to verify the kubelet's serving certificate.
-
-If that is not possible, use SSH tunneling between the API server and kubelet if required to avoid connecting over an untrusted or public network.
 
 ### Controllers
 In Kubernetes, controllers are control loops that watch the state of your cluster, then make or request changes where needed. Each controller tries to move the current cluster state closer to the desired state.
