@@ -174,6 +174,9 @@ The communication between the API server and other components in the cluster hap
 
 #### etcd
 
+etcd is a distributed reliable key-value store that is simple secure and fast.
+
+when we install etcd in our cluster there will be a default client called ectd control client it is a command line client for etcd. to retrive data we use etcdctl command.
 - open source distributed key-value store
 - primary data store for kubernetes
 -  strongly consistent, distributed key-value store,high secure,reliability
