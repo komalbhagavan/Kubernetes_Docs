@@ -25,14 +25,12 @@ Typically you have several nodes in a cluster; in a learning or resource-limited
 The components on a node include the kubelet, a container runtime, and the kube-proxy
 
 **In Kubernetes, you can perform several operations with nodes. Here are some of the key operations:**
-1. **Node Management**: You can add new nodes to the cluster or remove existing nodes as needed. This is important for scaling your cluster up or down based on workload requirements.
-2. **Node Maintenance**: You can mark nodes as "unschedulable" to prevent new workloads from being assigned to them. This is useful when you want to perform maintenance tasks on a node.
-3. **Node Labels and Taints**: You can assign labels to nodes, allowing you to categorize and group nodes based on various criteria. Taints can be applied to nodes to repel certain workloads, ensuring that only specific pods can be scheduled on those nodes.
-4. **Node Inspections**: You can inspect the status and resource utilization of nodes in your cluster. This helps in monitoring and optimizing resource allocation.
-5. **Node Upgrades**: You can perform rolling updates of node software (like the container runtime or the OS) to ensure nodes are running the latest and most secure versions.
-6. **Node Eviction**: If a node is experiencing issues (like excessive resource usage or hardware failures), you can evict workloads from that node and reschedule them on other healthy nodes.
-7. **Node Troubleshooting**: You can diagnose and troubleshoot node-related issues, such as connectivity problems, resource constraints, or misconfigurations.
-8. **Node Annotations**: You can attach annotations to nodes, providing additional metadata for management purposes.
+1. **Node Management**
+2. **Node Maintenance**
+3. **Node Upgrades**
+4. **Node Eviction**
+5. **Node Troubleshooting**
+6. **Node Annotations**
 
 ### Node Components
 #### kubelet
