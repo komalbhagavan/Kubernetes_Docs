@@ -1,6 +1,21 @@
-# Cluster Architecture
+# Kubernetes Cluster Architecture
+
+**Master Node
+**
+- etcd
+- kube-scheduler
+- kube-api-server
+- kube controller Manager
+
+**Worker Node
+**
+- kubelet
+- kube-proxy
+- Container run time
 -------------------------------------------
 ![clusrter_architecture](https://devopscube.com/wp-content/uploads/2022/12/k8s-architecture.drawio-1.png)
+
+The purpose of kubernetes is to host your applications in form of containers in an automated fashion so you can deploy any number of instances and can enable communication between thwm.
 
 --------------------------------------------------------------------------------
 ### Nodes
@@ -176,7 +191,7 @@ The communication between the API server and other components in the cluster hap
 
 etcd is a distributed reliable key-value store that is simple secure and fast.
 
-when we install etcd in our cluster there will be a default client called ectd control client it is a command line client for etcd. to retrive data we use etcdctl command.
+when we install etcd in our cluster there will be a default client called ectd control client it is a command line client for etcd 
 - open source distributed key-value store
 - primary data store for kubernetes
 -  strongly consistent, distributed key-value store,high secure,reliability
