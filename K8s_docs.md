@@ -1,14 +1,12 @@
 # Kubernetes Cluster Architecture
 
-**Master Node
-**
+**Master Node**
 - etcd
 - kube-scheduler
 - kube-api-server
 - kube controller Manager
 
-**Worker Node
-**
+**Worker Node**
 - kubelet
 - kube-proxy
 - Container run time
