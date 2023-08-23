@@ -5,7 +5,7 @@
 - kube-scheduler
 - kube-api-server
 - kube controller Manager
-
+- Container run time
 **Worker Node**
 - kubelet
 - kube-proxy
@@ -16,7 +16,7 @@
 The purpose of kubernetes is to host your applications in form of containers in an automated fashion so you can deploy any number of instances and can enable communication between them.
 
 --------------------------------------------------------------------------------
-### Nodes
+### Worker Nodes
 
 Kubernetes runs your workload by placing containers into Pods to run on Nodes. A node may be a virtual or physical machine, depending on the cluster. **Each node is managed by the control plane** and contains the services necessary to run Pods.
 
@@ -32,7 +32,7 @@ The components on a node include the kubelet, a container runtime, and the kube-
 5. **Node Troubleshooting**
 6. **Node Annotations**
 
-### Node Components
+### Worker Node Components
 #### kubelet
 
 An agent that runs on each node in the cluster. It makes sure that containers are running in a Pod.
